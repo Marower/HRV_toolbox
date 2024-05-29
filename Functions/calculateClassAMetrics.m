@@ -74,8 +74,8 @@ end
 % Calculate PQ3
 TS =  7; % Trisha et al. used temporal scale = 7.
 if (length(x)>240)
-    windowSize = 60;
-    N = ceil(RR(end,1)-windowSize);
+    windowLength = 60;
+    N = ceil(RR(end,1)-windowLength);
     PQ3(N+1) = 0;
 
     for i=0:N
