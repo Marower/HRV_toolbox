@@ -10,8 +10,8 @@ function [LFiA, HFiA] = calculateInstantaneousAmplitude (RR)
 % RR - uniformly 4Hz sampled RR intervals in ms
 
 % 1. Bandpass-filter the NNI into two bands, the LF and the HF
-LF = bandpass(RR,[0.04 0.15],4);
-HF = bandpass(RR,[0.15 0.4],4);
+LF = bandpass(RR(:,2),[0.04 0.15],4);
+HF = bandpass(RR(:,2),[0.15 0.4],4);
 windowLength = 300;
 N = ceil(RR(end,1)-windowLength);
 
