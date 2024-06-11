@@ -4,6 +4,11 @@ function [SQI, hosSQI, sSQI, kSQI] = SQI_higherOrderStatistics(ECG)
 % treadmill test in horses." Biomedical Signal Processing and Control 56
 % (2020): 101666.
 
+% Good Kurtossis and scewness equations:
+% C. Liu et al., "Signal Quality Assessment and Lightweight QRS Detection 
+% for Wearable ECG SmartVest System," in IEEE Internet of Things Journal, 
+% vol. 6, no. 2, pp. 1363-1374, April 2019, doi: 10.1109/JIOT.2018.2844090.
+
 kSQI = kurtosis(ECG);
 sSQI = skewness(ECG);
 hosSQI = abs(sSQI) * (kSQI/5);
