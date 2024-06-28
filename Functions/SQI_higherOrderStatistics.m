@@ -1,8 +1,8 @@
 function [SQI, hosSQI, sSQI, kSQI] = SQI_higherOrderStatistics(ECG)
-% SQIs taken from: Nardelli, Mimma, et al. "A tool for the real-time 
-% evaluation of ECG signal quality and activity: Application to submaximal
-% treadmill test in horses." Biomedical Signal Processing and Control 56
-% (2020): 101666.
+% SQIs taken from: G. D. Clifford, J. Behar, Q. Li and I. Rezek, 
+% "Signal quality indices and data fusion for determining clinical 
+% acceptability of electrocardiograms", Physiol. Meas., vol. 33, no. 9, 
+% pp. 1419-1433, 2012.
 
 % Good Kurtossis and scewness equations:
 % C. Liu et al., "Signal Quality Assessment and Lightweight QRS Detection 

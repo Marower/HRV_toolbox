@@ -6,6 +6,8 @@ addpath './Functions/'
 % https://pypi.org/project/py-ecg-detectors/
 % pip install py-ecg-detectors
 % (+numpy and scipy)
+
+%% HRV analysis
 detector = "two_averaged";
 R = double(detectRPeaks (ECG(:,2), FS, detector)');
 
@@ -47,3 +49,18 @@ result.PQ1 = [nan(1,10),PQ1]';
 result.PQ24 = [nan(1,10),PQ24]';
 
 result.PQ3 = [nan(1,60),PQ3]';
+
+%% SQI evaluation
+detector = "wqrs";
+R_1 = double(detectRPeaks (ECG(:,2), FS, detector)');
+
+detector = "pan_tompkins";
+R_2 = double(detectRPeaks (ECG(:,2), FS, detector)');
+
+[bSQI, iSQI_fD] = SQI_peakDetectionBased (R_1, R_2, 0.05*FS);
+
+[iorSQI, basSQI, pSQI] = SQI_frequencyBased (ECG(:,2), FS);
+
+[SQI, hosSQI, sSQI, kSQI] = SQI_higherOrderStatistics(ECG(:,2));
+
+% SQIs function provide one estimation for provide signal

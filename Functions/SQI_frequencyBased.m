@@ -4,8 +4,6 @@ function [iorSQI, basSQI, pSQI] = SQI_frequencyBased (ECG, fs)
 % treadmill test in horses." Biomedical Signal Processing and Control 56
 % (2020): 101666.
 
-
-
 [pxx, f] = pwelch(ECG, [], [], [], fs);
 df = mean(diff(f));
 
