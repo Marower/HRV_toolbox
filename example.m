@@ -64,3 +64,19 @@ R_2 = double(detectRPeaks (ECG(:,2), FS, detector)');
 [SQI, hosSQI, sSQI, kSQI] = SQI_higherOrderStatistics(ECG(:,2));
 
 % SQIs function provide one estimation for provide signal
+
+%% Adaptive filtration
+
+noise = rand(length(ECG(:,2)),1);
+Noise = 0.001*noise;
+sig = ECG(:,2)+Noise;
+
+[Signal, error] = LMS_filtration (sig, Noise, 10);
+
+ax(1) = subplot (3,1,1);
+plot (sig)
+ax(2) = subplot (3,1,2);
+plot (Noise)
+ax(3) = subplot (3,1,3);
+plot(error)
+linkaxes(ax,'x')
